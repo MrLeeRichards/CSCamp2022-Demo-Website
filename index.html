@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<style>
+		body {
+			background-color: linen;
+			color: seagreen;
+			font-family: sans-serif;
+			padding: 0px;
+			margin: 0px;
+		}
+	
+		.header {
+			font-size: 20pt;
+			background-color: salmon;
+			color: linen;
+			padding: 12pt;
+		}
+		
+		.menu-bar {
+			background-color: seagreen;
+		}
+		
+		.menu {
+			display: inline-block;
+			color: linen;
+		}
+		
+		.menu-header {
+			padding: 5pt;
+		}
+		
+		.menu-option-list {
+			display: none;
+			background-color: seagreen;
+		}
+		
+		.menu:hover > .menu-option-list {
+			display: inline-block;
+			position: absolute;
+		}
+		
+		.menu-option {
+			padding: 5pt;
+			transition: background-color .5s;
+		}
+		
+		.menu-option:hover {
+			background-color: linen;
+			color: seagreen;
+		}
+		
+		table {
+			border-collapse: collapse;
+			margin-top: 12pt;
+		}
+		
+		td {
+			padding-left: 10pt;
+			padding-right: 10pt;
+		}
+		
+		th {
+			background-color: seagreen;
+			color: linen;
+		}
+		
+		table > tbody > tr:nth-child(odd) {
+			background-color: white;
+			color:salmon;
+		}
+		
+		table > tbody > tr:nth-child(even) {
+			background-color: salmon;
+			color:white;
+		}
+		
+		.price {
+			text-align: right;
+		}
+		
+		input {
+			background-color: salmon;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">Hello World!</div>
+	<div class="menu-bar">
+		<div class="menu">
+			<div class="menu-header">Menu</div>
+			<div class="menu-option-list">
+				<div class="menu-option">Home</div>
+				<div class="menu-option">About</div>
+				<div class="menu-option"><a href="pages/PrivacyPolicy.html">Privacy Policy</a></div>
+			</div>
+		</div>
+	</div>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Item</th>
+				<th>Description</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Banana</td>
+				<td>A yellow fruit</td>
+				<td class="price">$0.50</td>
+			</tr>
+			<tr>
+				<td>Eagle's Shirt</td>
+				<td>Shirt with the Eagle Team logo</td>
+				<td class="price">$12.00</td>
+			</tr>
+			<tr>
+				<td>Eagle's Shirt</td>
+				<td>Shirt with the Eagle Team logo</td>
+				<td class="price">$12.00</td>
+			</tr>
+			<tr>
+				<td>Eagle's Shirt</td>
+				<td>Shirt with the Eagle Team logo</td>
+				<td class="price">$12.00</td>
+			</tr>
+			<tr>
+				<td>Eagle's Shirt</td>
+				<td>Shirt with the Eagle Team logo</td>
+				<td class="price">$12.00</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
