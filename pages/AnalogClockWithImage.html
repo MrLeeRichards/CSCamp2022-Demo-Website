@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Analog Clock</title>
+	</head>
+	<body style="background-color: black;">
+		<div style="text-align: center;">
+			<canvas id="canvasClockFace" width="200" height="200"></canvas>
+		</div>
+		
+		<div style="display: none;">
+			<img id="imgBackground" src="StarryNight.jpg">
+		</div>
+		
+		<script>
+			function toRadians(degreesAngle) {
+				return degreesAngle * Math.PI / 180.0
+			}
+		
+			var canvas = document.getElementById("canvasClockFace");
+			var context = canvas.getContext("2d");
+			var imgBackground = document.getElementById("imgBackground");
+			var clockPattern = context.createPattern(imgBackground, "no-repeat");
+				
+			context.translate(100,100);
+			context.scale(-1, 1);
+			
+			setInterval(function () {
+				context.clearRect(-100,-100,200,200);
+				
+				context.beginPath();
+				context.arc(0,0,100,0,2 * Math.PI);
+				
+				context.fillStyle = "white";
+				context.fill();
+				
+				context.globalCompositeOperation = "source-in";
+				context.drawImage(imgBackground, -100,-100);
+				context.globalCompositeOperation = "source-over";
+				
+				var time = new Date();
+				var secondAngle = time.getSeconds() * -toRadians(6) - toRadians(90);
+				var minuteAngle = time.getMinutes() * -toRadians(6) - toRadians(90);
+				var hourAngle = time.getHours() * -toRadians(30) - toRadians(90);
+				
+				context.lineCap = "round";
+				
+				// Second hand
+				context.beginPath();
+				context.moveTo(0,0);
+				context.lineTo(Math.cos(secondAngle) * 90, Math.sin(secondAngle) * 90);
+				
+				context.lineWidth = 2;
+				context.strokeStyle = "red";
+				context.stroke();
+				
+				// Minute hand
+				context.beginPath();
+				context.moveTo(0,0);
+				context.lineTo(Math.cos(minuteAngle) * 90, Math.sin(minuteAngle) * 90);
+				
+				context.lineWidth = 4;
+				context.strokeStyle = "black";
+				context.stroke();
+				
+				// Hour hand
+				context.beginPath();
+				context.moveTo(0,0);
+				context.lineTo(Math.cos(hourAngle) * 70, Math.sin(hourAngle) * 70);
+				
+				context.lineWidth = 6;
+				context.strokeStyle = "black";
+				context.stroke();
+				
+				context.beginPath();
+				context.arc(0,0,5,0,2 * Math.PI);
+				context.fillStyle = "black";
+				context.fill();
+				
+				// Numbers
+				context.fillStyle = "black";
+				context.textBaseline = "middle";
+				context.textAlign = "center";
+				context.font = "12pt Arial";
+				
+				context.scale(-1, 1);
+				for (var hour = 1; hour <= 12; hour++) {
+					var numberAngle = hour * toRadians(30) - toRadians(90);
+					
+					context.fillText(hour.toString(), Math.cos(numberAngle) * 80, Math.sin(numberAngle) * 80)
+				}
+				context.scale(-1, 1);
+			}, 1000);
+		</script>
+	</body>
+</html>

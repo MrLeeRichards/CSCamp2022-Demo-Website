@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Clock</title>
+		<style>
+			body {
+				background-image: linear-gradient(to right, grey, white);
+			}
+			
+			.clock-container {
+				text-align:center;
+				font-family:"Impact", sans-serif;
+				color: seagreen;
+				text-shadow: 5pt 5pt 5pt darkgrey;
+			}
+			
+			.clock-time {
+				font-size: 80pt;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock-container">
+			<div id="divClockTime" class="clock-time">12:59 pm</div>
+			<div id="divClockDate" class="clock-date">7/6/2022</div>
+		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.4.0/luxon.min.js" integrity="sha512-v1zUTZ9zv9Wb2scL/ANxXM6m7yegm/W5SN8SRHNFADdZIuSFFkrEBjNxO803DdFkjoCcJ88g1WHRVlLN6K/O1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script>
+			document.getElementById("divClockTime").innerHTML = luxon.DateTime.now().toFormat("h:mm:ss a");
+			document.getElementById("divClockDate").innerHTML = luxon.DateTime.now().toFormat("M/d/yyyy");
+			
+			setInterval(function () {
+				document.getElementById("divClockTime").innerHTML = luxon.DateTime.now().toFormat("h:mm:ss a");
+				document.getElementById("divClockDate").innerHTML = luxon.DateTime.now().toFormat("M/d/yyyy");
+			}, 1000);
+		</script>
+	</body>
+</html>
