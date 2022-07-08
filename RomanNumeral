@@ -1,0 +1,26 @@
+var hourString = '';
+				if(hour == 1) {
+					hourString = 'I';
+				} else if(hour == 2) {
+					hourString = 'II';
+				} else if(hour == 3) {
+					hourString = 'III';
+				} else if(hour == 4) {
+					hourString = 'IV';
+				} else if(hour == 5) {
+					hourString = 'V';
+				} else if(hour == 6) {
+					hourString = 'VI';
+				} else if(hour == 7) {
+					hourString = 'VII';
+				} else if(hour == 8) {
+					hourString = 'VIII';
+				} else if(hour == 9) {
+					hourString = 'IX';
+				} else if(hour == 10) {
+					hourString = 'X';
+				} else if(hour == 11) {
+					hourString = 'XI';
+				} else if(hour == 12) {
+					hourString = 'XII';
+				}
